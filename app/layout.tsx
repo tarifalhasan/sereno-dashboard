@@ -5,7 +5,7 @@ import Sidebar from "@/components/sidebar/sidebar";
 import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 
-export const fontSans = FontSans({
+const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
   weight: ["200", "300", "400", "500", "600", "700", "800"],
@@ -21,7 +21,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
+          fontSans.className
         )}
       >
         <div className={cn("flex items-start ")}>
