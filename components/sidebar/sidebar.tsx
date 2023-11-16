@@ -34,7 +34,7 @@ const Sidebar = () => {
         },
         {
           label: "En proceso",
-          href: "/operaciones/procesadas",
+          href: "/operaciones/processed",
         },
       ],
     },

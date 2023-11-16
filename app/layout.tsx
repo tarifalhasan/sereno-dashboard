@@ -28,7 +28,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <Sidebar />
           <main
             className={cn(
-              "flex-1  py-5 lg:py-8 lg:ml-[233px] px-2 sm:px-4 lg:px-10"
+              "flex-1 w-full  py-5 lg:py-8 lg:ml-[233px] px-2 sm:px-4 lg:px-10"
             )}
           >
             {children}

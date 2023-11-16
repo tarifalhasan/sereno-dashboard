@@ -3,7 +3,6 @@ import OperationNav from "@/components/operaciones/OperationNav";
 import Pagination from "@/components/ui/pagination";
 import { OperationsDummyData } from "@/constants";
 import { IOperationData } from "@/types";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { LuEye } from "react-icons/lu";
@@ -45,11 +44,10 @@ const InProgress = () => {
     "Tiempo",
     "",
   ];
-
   return (
     <div className=" space-y-7  w-full">
-      <OperationNav title="En proceso" />
-      <div className=" pt-5 h-full w-full overflow-scroll lg:overflow-auto">
+      <OperationNav title="Procesadas" />
+      <div className=" pt-5 h-full w-full overflow-scroll">
         <table className="w-full min-w-max table-auto  data-table text-center">
           <thead>
             <tr>
@@ -112,19 +110,11 @@ const InProgress = () => {
                   <div className=" inline-flex items-center gap-2">
                     <button
                       onClick={() =>
-                        router.push(`in-progress/${d.id.toString()}}`)
+                        router.push(`processed/${d.id.toString()}}`)
                       }
                       className=" rounded bg-silver_text-foreground inline-flex items-center justify-center h-[32px] w-[50px]"
                     >
                       <LuEye size={25} className="text-white" />
-                    </button>
-                    <button className=" rounded bg-red-foreground inline-flex items-center justify-center h-[32px] w-[50px]">
-                      <Image
-                        src={"/assets/images/delete.svg"}
-                        alt="delete"
-                        width={20}
-                        height={14.444}
-                      />
                     </button>
                   </div>
                 </td>

@@ -72,6 +72,7 @@ module.exports = {
         "slate-550": "#64748B",
         "blue-550": "#3056D3",
         "gray-25": "#EFF4FB",
+        "light-blue": "#3056D3",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -99,6 +100,7 @@ module.exports = {
         "t-22": "1.375rem",
         "t-25": "1.5625rem",
         "t-28": "1.75rem",
+        "t-15": "0.9375rem",
       },
       boxShadow: {
         "card-sm": "0px 8px 13px -3px rgba(0, 0, 0, 0.07)",

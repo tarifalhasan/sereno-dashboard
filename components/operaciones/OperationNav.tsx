@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Select,
   SelectContent,
@@ -5,23 +7,31 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useRouter } from "next/navigation";
+import { FC } from "react";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { RiDeleteBin4Line } from "react-icons/ri";
 import SearchBar from "../ui/search-bar";
-
-const OperationNav = () => {
+interface props {
+  title: string;
+}
+const OperationNav: FC<props> = ({ title }) => {
+  const router = useRouter();
   return (
-    <div className="flex flex-wrap 2xl:flex-nowrap flex-shrink-0 gap-4 items-center justify-between">
+    <div className="flex flex-wrap 2xl:flex-nowrap gap-4 items-center justify-between">
       <div className=" inline-flex items-center   gap-3">
-        <FaArrowLeftLong className="text-slate-550 w-8 cursor-pointer h-8" />
+        <FaArrowLeftLong
+          onClick={() => router.back()}
+          className="text-slate-550 w-8 cursor-pointer h-8"
+        />
         <div>
           <p className="text-sm font-medium text-blue-550">Operaciones</p>
-          <h2 className="heading1">En proceso</h2>
+          <h2 className="heading1"> {title}</h2>
         </div>
       </div>
-      <div className="flex flex-wrap  lg:flex-nowrap flex-shrink-0 items-center gap-4">
+      <div className="flex w-full lg:w-auto items-center gap-4">
         {/* filters dropdown menu */}
-        <div className="flex flex-wrap lg:flex-nowrap flex-shrink-0 items-center gap-4">
+        <div className=" hidden sm:flex  items-center gap-4">
           <button>
             <RiDeleteBin4Line className="w-8 h-8 text-silver_text-foreground" />
           </button>

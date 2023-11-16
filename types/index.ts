@@ -4,3 +4,13 @@ export interface ISidebar {
   href: string;
   children?: any[];
 }
+export interface IOperationData {
+  id: number;
+  username: string;
+  TxID: string;
+  Fecha: string;
+  Método: string;
+  Monto: string;
+  Moneda: string;
+  Tiempo: string;
+}

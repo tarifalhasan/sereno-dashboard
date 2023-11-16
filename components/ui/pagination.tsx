@@ -22,7 +22,7 @@ const Pagination: FC<CustomPaginateProps> = ({
   itemsPerPage,
 }) => {
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex  flex-col gap-5  sm:flex-row  items-center justify-between">
       <Select
         onValueChange={handlePerPageHandler}
         defaultValue={itemsPerPage.toString()}
