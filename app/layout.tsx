@@ -1,9 +1,10 @@
-import "@/styles/globals.css";
-import { Poppins as FontSans } from "next/font/google";
-
 import Sidebar from "@/components/sidebar/sidebar";
 import { cn } from "@/lib/utils";
+import "@/styles/globals.css";
+import { Poppins as FontSans } from "next/font/google";
 import { ReactNode } from "react";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -28,7 +29,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <Sidebar />
           <main
             className={cn(
-              "flex-1 w-full  py-5 lg:py-8 lg:ml-[233px] px-2 sm:px-4 lg:px-10"
+              "flex-1 w-full relative overflow-hidden  py-5 lg:py-8 lg:ml-[233px] px-2 sm:px-4 lg:px-10"
             )}
           >
             {children}
