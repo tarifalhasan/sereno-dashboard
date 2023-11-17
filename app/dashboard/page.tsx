@@ -1,4 +1,5 @@
 import Analytics1 from "@/components/dashboard/Analytics1";
+import N2Analytics from "@/components/dashboard/N2Analytics";
 import OverView from "@/components/dashboard/OverView";
 import Statistics from "@/components/dashboard/Statistics";
 
@@ -13,9 +14,9 @@ const Dashboard = () => {
           <Analytics1 />
           {/* Estadística */}
           <Statistics />
-          {/* Analíticas N2*/}
-          <div></div>
         </div>
+        {/* Analíticas N2*/}
+        <N2Analytics />
       </div>
     </div>
   );

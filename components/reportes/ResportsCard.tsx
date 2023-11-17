@@ -15,10 +15,10 @@ const ResportsCard = () => {
         <div className="flex w-full items-center justify-between">
           <p className="text-sm font-semibold">Dinero Ingresado</p>
           <Select defaultValue="30">
-            <SelectTrigger className="w-[120px]">
+            <SelectTrigger className="w-[75px]">
               <SelectValue placeholder="select days" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent align="end">
               <SelectItem value="30">30d</SelectItem>
               <SelectItem value="15">15d</SelectItem>
               <SelectItem value="7">07d</SelectItem>
