@@ -1,17 +1,13 @@
 import { cn } from "@/lib/utils";
 import * as SwitchPrimitives from "@radix-ui/react-switch";
 import * as React from "react";
-import { useState } from "react";
 import { BsCheck } from "react-icons/bs";
-
 import { IoClose } from "react-icons/io5";
 
 const Switch = React.forwardRef<
   React.ElementRef<typeof SwitchPrimitives.Root>,
   React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>
->(({ className, ...props }, ref) => {
-  const [checked, setChecked] = useState(false);
-
+>(({ className, checked, ...props }, ref) => {
   return (
     <SwitchPrimitives.Root
       className={cn(
@@ -20,8 +16,6 @@ const Switch = React.forwardRef<
       )}
       {...props}
       ref={ref}
-      checked={checked}
-      onCheckedChange={() => setChecked(!checked)}
     >
       <SwitchPrimitives.Thumb
         className={cn(
@@ -32,7 +26,7 @@ const Switch = React.forwardRef<
         {checked ? (
           <BsCheck size={17} className="text-white" />
         ) : (
-          <IoClose size={17} className=" text-silver_text-foreground" />
+          <IoClose size={17} className="text-silver_text-foreground" />
         )}
       </SwitchPrimitives.Thumb>
     </SwitchPrimitives.Root>
