@@ -39,7 +39,7 @@ const UserSearch = () => {
     },
   ];
   return (
-    <div>
+    <div className="space-y-7">
       <TopNavigation title="Perfil" des="Búsqueda de perfiles" />
       <div className="">
         <Input

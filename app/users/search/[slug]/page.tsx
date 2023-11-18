@@ -1,22 +1,27 @@
 import TopNavigation from "@/components/TopNavigation";
-import EnabledPaymentMethods from "@/components/plis/EnabledPaymentMethods";
-import PLIBankAccounts from "@/components/plis/PLIBankAccounts";
-import ProfileOverView from "@/components/plis/ProfileOverView";
-import VOTCshAssociatedWithThisPLI from "@/components/plis/VOTC'shAssociatedWithThisPLI";
+import SearchBar from "@/components/ui/search-bar";
+import AssociatedBankAccounts from "@/components/user/AssociatedBankAccounts";
+import LatestTransactions from "@/components/user/LatestTransactions";
+import UserProfileOverview from "@/components/user/UserOverview";
 
 const UserDetails = () => {
   return (
-    <div>
-      <TopNavigation title="PLI’s" des="Perfil del PLI" />
+    <div className="space-y-5 xl:space-y-7">
+      <div className="flex items-center justify-between">
+        <TopNavigation className="flex-1" title="PLI’s" des="Perfil del PLI" />
+        <div>
+          <SearchBar />
+        </div>
+      </div>
       {/* profile info */}
       <div className="border border-border">
-        <ProfileOverView />
-        {/*Métodos de pago habilitados */}
-        <EnabledPaymentMethods />
-        {/* PLI Bank Accounts*/}
-        <PLIBankAccounts />
-        {/* VOTC’sh asociados a este PLI */}
-        <VOTCshAssociatedWithThisPLI />
+        <UserProfileOverview />
+
+        {/*Últimas transacciones */}
+        <LatestTransactions />
+
+        {/*Cuentas Bancarias Asociadas*/}
+        <AssociatedBankAccounts />
       </div>
     </div>
   );
