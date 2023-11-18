@@ -62,12 +62,12 @@ const EnabledPaymentMethods = () => {
   return (
     <div className="w-full py-5 lg:py-10 overflow-scroll xl:overflow-auto">
       <h2 className="text-base font-semibold pl-5">
-        Cuentas Bancarias del PLI
+        Métodos de pago habilitados
       </h2>
       <table className="table-auto min-w-max text-left w-full">
         <thead>
           <tr>
-            {THEAD.map((item, index, array) => {
+            {THEAD.map((item, index) => {
               return (
                 <th key={index} className={cn(index === 0 ? "pl-5" : "pl-0")}>
                   <p className="text-t-15  pb-2 font-medium"> {item}</p>
@@ -78,7 +78,7 @@ const EnabledPaymentMethods = () => {
         </thead>
         <tbody className=" ">
           {tableData.map((rowData, index) => (
-            <tr className="h-12 border border-border" key={index}>
+            <tr className="h-12 border-y border-border" key={index}>
               <td className="pl-5">
                 <p
                   className={cn(
@@ -113,7 +113,7 @@ const EnabledPaymentMethods = () => {
                   />
                 </div>
               </td>
-              <td>
+              <td className="pr-4">
                 <div className="flex items-center justify-end gap-3">
                   <Switch
                     checked={rowData.switchStates.addMethod}

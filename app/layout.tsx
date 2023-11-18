@@ -1,4 +1,5 @@
 import Sidebar from "@/components/sidebar/sidebar";
+import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 import { Poppins as FontSans } from "next/font/google";
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           >
             {children}
           </main>
+          <Toaster />
         </div>
       </body>
     </html>

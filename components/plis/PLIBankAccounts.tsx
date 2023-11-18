@@ -2,8 +2,9 @@
 import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
+import { Button } from "../ui/button";
 import AddNewAccountModal from "./AddNewAccount";
-const THEAD = ["Nombre", "Buy", "Sell", ""];
+
 interface ICuentas_Bancarias_del_PLI {
   bank: string;
   titular: string;
@@ -23,9 +24,8 @@ const Cuentas_THED = [
   "Tercero",
   "Tx Buy",
   "Tx Sell",
-  "",
 ];
-const CuentasBancariasdelPLI = () => {
+const PLIBankAccounts = () => {
   // Cuentas Bancarias del PLI dummy data
 
   const Cuentas_Bancarias_del_PLI: ICuentas_Bancarias_del_PLI[] = [
@@ -84,11 +84,18 @@ const CuentasBancariasdelPLI = () => {
                   </th>
                 );
               })}
+              <th className="text-right pr-4">
+                <div className="pb-2">
+                  <Button variant={"secondary"} className="h-8">
+                    Añadir Cuenta
+                  </Button>
+                </div>
+              </th>
             </tr>
           </thead>
           <tbody className=" ">
             {Cuentas_Bancarias_del_PLIData.map((rowData, index) => (
-              <tr className="h-12 border border-border" key={index}>
+              <tr className="h-12 border-y border-border" key={index}>
                 <td className="pl-5">
                   <p className={cn("text-t-15 font-normal")}>{rowData.bank}</p>
                 </td>
@@ -118,7 +125,7 @@ const CuentasBancariasdelPLI = () => {
                     {rowData.sell_TAX}
                   </p>
                 </td>
-                <td>
+                <td className="pr-4">
                   <div className="flex items-center justify-end gap-3">
                     <Switch
                       checked={rowData.switchStates}
@@ -138,4 +145,4 @@ const CuentasBancariasdelPLI = () => {
   );
 };
 
-export default CuentasBancariasdelPLI;
+export default PLIBankAccounts;

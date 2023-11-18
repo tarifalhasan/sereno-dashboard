@@ -26,15 +26,15 @@ const VOTCshAssociatedWithThisPLI = () => {
   ];
   return (
     <div>
-      <h2 className="text-base font-medium py-3">
+      <h2 className="text-base font-medium py-3 pl-5">
         VOTC’sh asociados a este PLI
       </h2>
 
       <div className=" w-full ">
         <Table>
-          <TableBody className="[&_tr:last-child]:border">
+          <TableBody className="[&_tr:last-child]:border-0">
             {DATA.map((data, index) => (
-              <TableRow key={index} className=" w-12 border">
+              <TableRow key={index} className=" w-12 border-y">
                 <TableCell className=" w-[285px]">
                   <div className=" inline-flex items-center gap-2">
                     <Image

@@ -2,11 +2,10 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { FC } from "react";
 import { FaRegEdit } from "react-icons/fa";
-const THEAD = ["Nombre", "Buy", "Sell", ""];
 
 const ProfileOverView = () => {
   return (
-    <div className="border  px-5 py-5 lg:py-7  border-border">
+    <div className="border-y  px-5 py-5 lg:py-7  border-border">
       <div className="flex pb-5 border-b border-border items-center  gap-5 flex-wrap justify-between">
         <div className=" inline-flex items-center gap-2">
           <Image

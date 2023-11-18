@@ -45,11 +45,11 @@ const Sidebar = () => {
       children: [
         {
           label: "Agregar",
-          href: "/operaciones/",
+          href: "/users/add",
         },
         {
           label: "Búsqueda ",
-          href: "/operaciones/procesadas",
+          href: "/users/search",
         },
         {
           label: "Avanzada ",

@@ -4,10 +4,11 @@ import PLIBankAccounts from "@/components/plis/PLIBankAccounts";
 import ProfileOverView from "@/components/plis/ProfileOverView";
 import VOTCshAssociatedWithThisPLI from "@/components/plis/VOTC'shAssociatedWithThisPLI";
 
-const PlisDetails = () => {
+const UserDetails = () => {
   return (
     <div>
       <TopNavigation title="PLI’s" des="Perfil del PLI" />
+      {/* profile info */}
       <div className="border border-border">
         <ProfileOverView />
         {/*Métodos de pago habilitados */}
@@ -21,4 +22,4 @@ const PlisDetails = () => {
   );
 };
 
-export default PlisDetails;
+export default UserDetails;

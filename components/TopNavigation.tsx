@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { FC } from "react";
 
 interface ITopNavigation {
-  title: string;
+  title?: string;
   des: string;
 }
 
@@ -21,7 +21,9 @@ const TopNavigation: FC<ITopNavigation> = ({ title, des }) => {
         alt="asasa"
       />
       <div className=" -space-y-1">
-        <p className="text-sm font-medium text-light-blue">{title}</p>
+        {title && (
+          <p className="text-sm font-medium text-light-blue">{title}</p>
+        )}
         <h4 className=" text-t-22 sm:text-t-25 font-bold">{des}</h4>
       </div>
     </div>
