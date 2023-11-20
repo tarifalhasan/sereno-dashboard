@@ -79,7 +79,7 @@ const LatestTransactions = () => {
                   <Button
                     onClick={() =>
                       router.push(
-                        `/transactions/${data.transactions_id.toLowerCase()}`
+                        `/users/search/3f725c72-87af-11ee-b528-eb185feaf229/transactions/${data.transactions_id.toLowerCase()}`
                       )
                     }
                     className=" h-8  px-[30px]"

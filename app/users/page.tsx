@@ -4,7 +4,7 @@ import UserAnalytics from "@/components/user/UserAnalytics";
 const Users = () => {
   return (
     <div>
-      <h2 className="heading1">Usuarios</h2>
+      <h2 className="heading1 pt-2 pb-5">Usuarios</h2>
       <div className=" overflow-hidden grid gap-5 xl:gap-6 xl:grid-cols-2">
         <UserAnalytics />
         <div>

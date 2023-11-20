@@ -1,25 +1,9 @@
 "use client";
-import { IuserData } from "@/types";
+import { userData } from "@/constants";
 import { FC } from "react";
 import UserProfileDetails from "./UserDetails";
 
 const UserProfileOverview = () => {
-  const userData: IuserData = {
-    name: "Sebastián Rojas",
-    status: "Activo",
-    country: "PE",
-    balance: "9,497USD",
-    email: "sebastians@gmail.com",
-    phone: "+8801779158124",
-    tier: "Tier 1",
-    txCompletadas: "79",
-    txCanceladas: "528",
-    feeMantenimiento: "35,564USD",
-    feeVol: "35,564USD",
-    address: "Dirección 5, Edif. 9, Puerto Ordaz.",
-    docId: "v10444333",
-  };
-
   return (
     <div className="border-y  px-5 py-5 lg:py-7  border-border">
       <UserProfileDetails userData={userData} />

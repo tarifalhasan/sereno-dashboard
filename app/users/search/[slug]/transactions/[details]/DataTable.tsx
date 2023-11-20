@@ -20,6 +20,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 import { Input } from "@/components/ui/input";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
 const THEAD = ["Banco", "Titular", "Nro", "Moneda", "Tercero", "Documento", ""];
@@ -31,7 +32,9 @@ interface ITransactionsData {
   tereco: string;
   documento: string;
 }
-const DataTable = () => {
+const DataTable = ({}) => {
+  const pathName = usePathname();
+  const router = useRouter();
   const [editableRowIndex, setEditableRowIndex] = useState<number>(-1);
 
   const [transactionsData, setTransactionsData] = useState<ITransactionsData[]>(
@@ -201,7 +204,10 @@ const DataTable = () => {
 
               <TableCell className="text-right">
                 <div className="inline-flex items-center gap-2">
-                  <Button variant={"secondary"}>
+                  <Button
+                    onClick={() => router.push(`${pathName}/documents`)}
+                    variant={"secondary"}
+                  >
                     <LuEye className="text-2xl text-white" />
                   </Button>
                   <Button

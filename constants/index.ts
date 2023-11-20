@@ -1,4 +1,4 @@
-import { IOperationData } from "@/types";
+import { IOperationData, IuserData } from "@/types";
 
 export const OperationsDummyData: IOperationData[] = [
   {
@@ -22,3 +22,19 @@ export const OperationsDummyData: IOperationData[] = [
     Tiempo: "00:05:56",
   },
 ];
+
+export const userData: IuserData = {
+  name: "Sebastián Rojas",
+  status: "Activo",
+  country: "PE",
+  balance: "9,497USD",
+  email: "sebastians@gmail.com",
+  phone: "+8801779158124",
+  tier: "Tier 1",
+  txCompletadas: "79",
+  txCanceladas: "528",
+  feeMantenimiento: "35,564USD",
+  feeVol: "35,564USD",
+  address: "Dirección 5, Edif. 9, Puerto Ordaz.",
+  docId: "v10444333",
+};

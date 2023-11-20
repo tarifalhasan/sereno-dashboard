@@ -140,7 +140,6 @@ const UserProfileDetails: FC<UserProfileDetailsProps> = ({ userData }) => {
         <Button onClick={toggleEditMode} variant={"success"} className=" gap-1">
           <FaRegEdit size={18} />
           {isEditable ? "Guardar" : "Editar"}
-          Editar
         </Button>
         <Button variant={"secondary"}>Documentos</Button>
       </div>
