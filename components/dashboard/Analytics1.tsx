@@ -7,8 +7,45 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { cn } from "@/lib/utils";
 
 const Analytics1 = () => {
+  const DATA = [
+    {
+      objeto: "objeto",
+      e1: "2.5K",
+      e2: "2.5K",
+      progress: "80%",
+    },
+
+    {
+      objeto: "objeto",
+      e1: "376",
+      e2: "139",
+      progress: "60%",
+    },
+    {
+      objeto: "objeto",
+      e1: "468",
+      e2: "290",
+      progress: "40%",
+    },
+    {
+      objeto: "objeto",
+      e1: "298",
+      e2: "176",
+      progress: "30%",
+    },
+  ];
+
   return (
     <div className="border border-border  shadow-card-sm p-7">
       <div className="flex items-center justify-between">
@@ -62,6 +99,36 @@ const Analytics1 = () => {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
+      <Table className="table-auto min-w-max  border-separate border-spacing-y-[1em]">
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-[100px] text-silver_text-foreground font-medium">
+              Tópico
+            </TableHead>
+            <TableHead className=" w-[120px] text-silver_text-foreground text-right font-medium">
+              E1
+            </TableHead>
+            <TableHead className="text-right text-silver_text-foreground w-[60px] font-medium">
+              E2
+            </TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody className="[&_tr:last-child]:border-0 ">
+          {DATA.map((data, index) => (
+            <TableRow
+              style={{
+                backgroundImage: `linear-gradient(to right,lightgrey ${data.progress},white ${data.progress})`,
+              }}
+              className={cn(" hover:bg-slate-200")}
+              key={index}
+            >
+              <TableCell className="">{data.objeto} </TableCell>
+              <TableCell className=" w-[120px] text-right">{data.e1}</TableCell>
+              <TableCell className="text-right w-[120px">{data.e2}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </div>
   );
 };

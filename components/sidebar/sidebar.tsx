@@ -53,7 +53,7 @@ const Sidebar = () => {
         },
         {
           label: "Avanzada ",
-          href: "/operaciones/procesadas",
+          href: "/users/advanced",
         },
       ],
     },
@@ -77,7 +77,7 @@ const Sidebar = () => {
   return (
     <div
       className={cn(
-        "bg-dark fixed hidden lg:block left-0 top-0 bottom-0 min-w-[233px] px-5 py-5 h-full min-h-screen"
+        "bg-dark xl:fixed  left-0 top-0 bottom-0 min-w-[233px] px-5 py-5 h-full min-h-screen"
       )}
     >
       <Link href={"/"} className="">

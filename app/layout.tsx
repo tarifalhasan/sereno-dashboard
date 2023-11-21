@@ -1,3 +1,4 @@
+import MobileNavbar from "@/components/modals/MobileNavbar";
 import Sidebar from "@/components/sidebar/sidebar";
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
@@ -26,13 +27,19 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontSans.className
         )}
       >
-        <div className={cn("flex items-start ")}>
-          <Sidebar />
+        <div className={cn(" block xl:flex items-start ")}>
+          <div className=" hidden xl:block">
+            <Sidebar />
+          </div>
+          <div className=" xl:hidden">
+            <MobileNavbar />
+          </div>
           <main
             className={cn(
               "flex-1 w-full relative overflow-hidden  py-5 lg:py-8 lg:ml-[233px] px-2 sm:px-4 lg:px-10"
             )}
           >
+            <div className=""></div>
             {children}
           </main>
           <Toaster />
