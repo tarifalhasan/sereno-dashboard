@@ -99,7 +99,7 @@ const Analytics1 = () => {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <Table className="table-auto min-w-max  border-separate border-spacing-y-[1em]">
+      <Table className="table-auto min-w-max  w-full border-separate border-spacing-y-[1em]">
         <TableHeader>
           <TableRow>
             <TableHead className="w-[100px] text-silver_text-foreground font-medium">
