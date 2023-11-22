@@ -3,9 +3,12 @@ import TopNavigation from "@/components/TopNavigation";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { v1 as uuidv4 } from "uuid";
 const UserSearch = () => {
   const router = useRouter();
+  const [searchTerm, setSearchTerm] = useState("");
+
   const DATA = [
     {
       name: "Emmerson Oceanía",
@@ -38,6 +41,14 @@ const UserSearch = () => {
       id: uuidv4(),
     },
   ];
+
+  // Function to filter data based on search term
+  const filteredData = DATA.filter(
+    (user) =>
+      user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      user.username.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="space-y-7">
       <TopNavigation title="Perfil" des="Búsqueda de perfiles" />
@@ -46,9 +57,11 @@ const UserSearch = () => {
           className="border w-full border-border rounded-[6px]  text-sm text-silver_text-foreground"
           type="search"
           placeholder="@username, nombre, correo eletrónico, número telefónico"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
         <ul className="space-y-5 pt-5">
-          {DATA.map((u, index) => (
+          {filteredData.map((u, index) => (
             <li
               key={index}
               onClick={() => router.push(`/users/search/${u.id}`)}

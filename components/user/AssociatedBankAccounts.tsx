@@ -6,35 +6,21 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { cn } from "@/lib/utils";
+import { ITransaction } from "@/types";
+import { FC } from "react";
 import { Button } from "../ui/button";
 
 const THED = ["Banco", "Titular", "Nro", "Moneda", "Tercero", ""];
 
-const AssociatedBankAccounts = () => {
-  const DATA = [
-    {
-      id: 1,
-      titular: "@johnusuario",
-      Nro: "010341915456798759561",
-      tercero: "$800",
-      Moneda: "BsD",
-      Tiempo: "00:03:56",
-      Banco: "Banesco",
-    },
-    {
-      id: 2,
-      titular: "@tarifalhasan",
-      Nro: "010341915456798759561",
-      tercero: "$900",
-      Moneda: "BsD",
-      Tiempo: "00:05:56",
-      Banco: "Banesco",
-    },
-  ];
+interface LatestTransactionsProps {
+  data: ITransaction[];
+}
+
+const AssociatedBankAccounts: FC<LatestTransactionsProps> = ({ data }) => {
   return (
     <div className="space-y-5">
       <div className="flex px-5  pt-5 xl:pt-8 items-center justify-between">
-        <h4 className="text-base font-semibold">Últimas transacciones</h4>
+        <h4 className="text-base font-semibold">Cuentas Bancarias Asociadas</h4>
         <p className="text-sm font-normal text-light-blue">Ver todas</p>
       </div>
       <Table className=" min-w-max w-full table-auto">
@@ -52,7 +38,7 @@ const AssociatedBankAccounts = () => {
         </TableHeader>
         <TableBody>
           <>
-            {DATA.map((data, index) => (
+            {data.map((data, index) => (
               <TableRow key={index}>
                 <TableCell>{data.Banco}</TableCell>
                 <TableCell>{data.titular}</TableCell>

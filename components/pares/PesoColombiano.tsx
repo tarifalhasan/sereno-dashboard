@@ -16,7 +16,7 @@ const THEAD = [
   "PLI online",
 ];
 
-const PesoChileno: FC = () => {
+const PesoColombiano: FC = () => {
   const TableData = [
     {
       nombre: "Banesco",
@@ -89,28 +89,6 @@ const PesoChileno: FC = () => {
       tasa_prom: "35,345",
       spr_buy: {
         total: "3%",
-        isActive: false,
-        isDisabled: true,
-      },
-      spr_sell: {
-        total: "3%",
-        isActive: false,
-        isDisabled: true,
-      },
-      spr_genarel: "3%",
-      fee_de_vol: "1%",
-      pli_online: 181,
-      AñadirMétodo: {
-        isActive: false,
-        isEdit: false,
-        isDisabled: true,
-      },
-    },
-    {
-      nombre: "Banesco",
-      tasa_prom: "35,345",
-      spr_buy: {
-        total: "3%",
         isActive: true,
         isDisabled: false,
       },
@@ -163,7 +141,7 @@ const PesoChileno: FC = () => {
 
   return (
     <div>
-      <h3 className=" pl-5 py-2 text-base font-semibold">Peso Chileno</h3>
+      <h3 className=" pl-5 py-2 text-base font-semibold">Peso Colombiano</h3>
       <div className="w-full overflow-scroll xl:overflow-auto">
         <table className="table-auto min-w-max text-left w-full">
           <thead>
@@ -252,4 +230,4 @@ const PesoChileno: FC = () => {
   );
 };
 
-export default PesoChileno;
+export default PesoColombiano;

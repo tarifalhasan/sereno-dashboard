@@ -29,3 +29,13 @@ export interface IuserData {
   address: string;
   docId: string;
 }
+
+export interface ITransaction {
+  id: number;
+  titular: string;
+  Nro: string;
+  tercero: string;
+  Moneda: string;
+  Tiempo: string;
+  Banco: string;
+}

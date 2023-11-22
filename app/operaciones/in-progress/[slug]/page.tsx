@@ -1,4 +1,5 @@
 "use client";
+import TopNavigation from "@/components/TopNavigation";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -10,10 +11,18 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+
 import { Button } from "@/components/ui/button";
 import { OperationsDummyData } from "@/constants";
 import { usePathname, useRouter } from "next/navigation";
-import { FaArrowLeftLong } from "react-icons/fa6";
 const View = () => {
   const pathName = usePathname();
   const router = useRouter();
@@ -24,32 +33,36 @@ const View = () => {
   const THEAD = ["Tipo", "Username", "Fecha", "Banco", "Monto", "Moneda"];
 
   return (
-    <div>
-      <div className=" inline-flex items-center   gap-3">
-        <FaArrowLeftLong
-          onClick={() => router.back()}
-          className="text-slate-550 w-8 cursor-pointer h-8"
-        />
-        <div>
-          <p className="text-sm font-medium text-blue-550">Operaciones</p>
-          <h2 className="text-base font-normal">{data?.TxID}</h2>
-        </div>
-      </div>
+    <div className="space-y-5">
+      <TopNavigation title="Operación" des="#AKDO2384FV" />
+      <Table className="table-auto min-w-max w-full">
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-[100px]">Tipo</TableHead>
+            <TableHead>Usuario</TableHead>
+            <TableHead>Fecha</TableHead>
+            <TableHead>Banco</TableHead>
+            <TableHead>Monto</TableHead>
+            <TableHead className="">Moneda</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody className="[&_tr:last-child]:border">
+          <TableRow>
+            <TableCell className="font-medium">
+              <span className="text-green font-semibold">+</span> Buy
+            </TableCell>
+            <TableCell>@johnusuario</TableCell>
+            <TableCell>26/08/23 - 18:05</TableCell>
+            <TableCell>Banes co</TableCell>
+            <TableCell>$800</TableCell>
+            <TableCell>2,345 BsD</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
 
-      <ul className="grid grid-cols-6  py-5">
-        <li className="text-base font-semibold ">Tipo</li>
-        <li className="text-base font-semibold ">Usuario</li>
-        <li className="text-base font-semibold ">Fecha</li>
-        <li className="text-base font-semibold ">Banco</li>
-        <li className="text-base font-semibold ">Monto</li>
-        <li className="text-base font-semibold ">Moneda</li>
-      </ul>
       <div className=" border border-border p-5 rounded-[6px]">
         <ul className="grid grid-cols-6  pt-5">
           <li className=" space-y-5">
-            <p className="text-base font-normal">
-              <span className="text-green font-extrabold">+</span> Buy
-            </p>
             <div>
               <h4 className="text-t-15 font-semibold">Estado</h4>
               <p className="text-t-15 font-normal">En proceso </p>
@@ -66,7 +79,7 @@ const View = () => {
             <p className="text-base font-normal">{data?.Fecha}</p>
             <div>
               <h4 className="text-t-15 font-semibold">Número de transacción</h4>
-              <p className="text-t-15 font-normal">{data?.TxID} </p>
+              <p className="text-t-15 font-normal">#AKDO2384FV</p>
             </div>
             <div>
               <h4 className="text-t-15 font-semibold">Tier</h4>

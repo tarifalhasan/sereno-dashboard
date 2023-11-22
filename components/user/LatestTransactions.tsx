@@ -9,36 +9,28 @@ import {
 } from "@/components/ui/table";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
+import { FC } from "react";
 import { Button } from "../ui/button";
 
 const THED = ["Tipo", "Usuario", "Fecha", "Banco", "Monto", "Moneda", ""];
 
-const LatestTransactions = () => {
+interface ILatestTransaction {
+  id: number;
+  username: string;
+  TxID: string;
+  Fecha: string;
+  Monto: string;
+  Moneda: string;
+  Tiempo: string;
+  Banco: string;
+  transactions_id: string;
+}
+interface LatestTransactionsProps {
+  data: ILatestTransaction[];
+}
+const LatestTransactions: FC<LatestTransactionsProps> = ({ data }) => {
   const router = useRouter();
-  const latestTransaction = [
-    {
-      id: 1,
-      username: "@johnusuario",
-      TxID: "#AKDO2384FV",
-      Fecha: "26/08/23 - 18:05",
-      Monto: "$800",
-      Moneda: "2,345 BsD",
-      Tiempo: "00:03:56",
-      Banco: "Banesco",
-      transactions_id: "AKDO2384FV",
-    },
-    {
-      id: 2,
-      username: "@tarifalhasan",
-      TxID: "#AKDO2dfdf",
-      Fecha: "26/08/23 - 18:05",
-      Monto: "$900",
-      Moneda: "5,345 BsD",
-      Tiempo: "00:05:56",
-      Banco: "Banesco",
-      transactions_id: "BKDO2384FV",
-    },
-  ];
+
   return (
     <div className="space-y-5">
       <div className="flex px-5  pt-5 xl:pt-8 items-center justify-between">
@@ -60,7 +52,7 @@ const LatestTransactions = () => {
         </TableHeader>
         <TableBody>
           <>
-            {latestTransaction.map((data, index) => (
+            {data.map((data, index) => (
               <TableRow key={index}>
                 <TableCell>
                   <p className=" inline-flex text-[0.9375rem] font-normal items-center">

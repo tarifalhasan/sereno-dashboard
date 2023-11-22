@@ -13,9 +13,216 @@ import {
 } from "@/components/ui/table";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { useState } from "react";
+const dummy_company = [
+  {
+    conpany_name: "Bolívar Digital",
+
+    active_user: [
+      {
+        name: "Banesco",
+        active_users: 9465,
+        id: uuidv4(),
+      },
+      {
+        name: "Mercantil",
+        active_users: 9465,
+        id: uuidv4(),
+      },
+      {
+        name: "Banesco",
+        active_users: 9465,
+        id: uuidv4(),
+      },
+      {
+        name: "Banesco",
+        active_users: 9465,
+        id: uuidv4(),
+      },
+      {
+        name: "Banesco",
+        active_users: 9465,
+        id: uuidv4(),
+      },
+      {
+        name: "Banesco",
+        active_users: 9465,
+        id: uuidv4(),
+      },
+    ],
+    user_details: [
+      {
+        name: "Emmerson Oceanía",
+        username: "@emmerson003",
+        avatar: "/assets/images/image 4.png",
+        id: uuidv4(),
+      },
+      {
+        name: "Mirabelle Hargraves",
+        username: "@mihafff",
+        avatar: "/assets/images/image 4 (1).png",
+        id: uuidv4(),
+      },
+      {
+        name: "Emmerson Oceanía",
+        username: "@emmerson003",
+        avatar: "/assets/images/image 4.png",
+        id: uuidv4(),
+      },
+      {
+        name: "Emmerson Oceanía",
+        username: "@emmerson003",
+        avatar: "/assets/images/image 4.png",
+        id: uuidv4(),
+      },
+      {
+        name: "Emmerson Oceanía",
+        username: "@emmerson003",
+        avatar: "/assets/images/image 4.png",
+        id: uuidv4(),
+      },
+    ],
+  },
+  {
+    conpany_name: "Bolívar Digital",
+    active_user: [
+      {
+        name: "Banesco",
+        active_users: 9465,
+        id: uuidv4(),
+      },
+      {
+        name: "Mercantil",
+        active_users: 9465,
+        id: uuidv4(),
+      },
+      {
+        name: "Banesco",
+        active_users: 9465,
+        id: uuidv4(),
+      },
+      {
+        name: "Banesco",
+        active_users: 9465,
+        id: uuidv4(),
+      },
+      {
+        name: "Banesco",
+        active_users: 9465,
+        id: uuidv4(),
+      },
+      {
+        name: "Banesco",
+        active_users: 9465,
+        id: uuidv4(),
+      },
+    ],
+    user_details: [
+      {
+        name: "Emmerson Oceanía",
+        username: "@emmerson003",
+        avatar: "/assets/images/image 4.png",
+        id: uuidv4(),
+      },
+      {
+        name: "Mirabelle Hargraves",
+        username: "@mihafff",
+        avatar: "/assets/images/image 4 (1).png",
+        id: uuidv4(),
+      },
+      {
+        name: "Emmerson Oceanía",
+        username: "@emmerson003",
+        avatar: "/assets/images/image 4.png",
+        id: uuidv4(),
+      },
+      {
+        name: "Emmerson Oceanía",
+        username: "@emmerson003",
+        avatar: "/assets/images/image 4.png",
+        id: uuidv4(),
+      },
+      {
+        name: "Emmerson Oceanía",
+        username: "@emmerson003",
+        avatar: "/assets/images/image 4.png",
+        id: uuidv4(),
+      },
+    ],
+  },
+  {
+    conpany_name: "Bolívar Digital",
+    active_user: [
+      {
+        name: "Banesco",
+        active_users: 9465,
+        id: uuidv4(),
+      },
+      {
+        name: "Mercantil",
+        active_users: 9465,
+        id: uuidv4(),
+      },
+      {
+        name: "Banesco",
+        active_users: 9465,
+        id: uuidv4(),
+      },
+      {
+        name: "Banesco",
+        active_users: 9465,
+        id: uuidv4(),
+      },
+      {
+        name: "Banesco",
+        active_users: 9465,
+        id: uuidv4(),
+      },
+      {
+        name: "Banesco",
+        active_users: 9465,
+        id: uuidv4(),
+      },
+    ],
+    user_details: [
+      {
+        name: "Emmerson Oceanía",
+        username: "@emmerson003",
+        avatar: "/assets/images/image 4.png",
+        id: uuidv4(),
+      },
+      {
+        name: "Mirabelle Hargraves",
+        username: "@mihafff",
+        avatar: "/assets/images/image 4 (1).png",
+        id: uuidv4(),
+      },
+      {
+        name: "Emmerson Oceanía",
+        username: "@emmerson003",
+        avatar: "/assets/images/image 4.png",
+        id: uuidv4(),
+      },
+      {
+        name: "Emmerson Oceanía",
+        username: "@emmerson003",
+        avatar: "/assets/images/image 4.png",
+        id: uuidv4(),
+      },
+      {
+        name: "Emmerson Oceanía",
+        username: "@emmerson003",
+        avatar: "/assets/images/image 4.png",
+        id: uuidv4(),
+      },
+    ],
+  },
+];
 
 const Plis = () => {
   const router = useRouter();
+  const [searchTerms, setSearchTerms] = useState(dummy_company.map(() => ""));
+
   const overview = [
     {
       country_name: "Venezuela",
@@ -31,211 +238,6 @@ const Plis = () => {
       country_name: "Chile",
       conpany_name: "Peso Chileno",
       users: "354",
-    },
-  ];
-
-  const dummy_company = [
-    {
-      conpany_name: "Bolívar Digital",
-
-      active_user: [
-        {
-          name: "Banesco",
-          active_users: 9465,
-          id: uuidv4(),
-        },
-        {
-          name: "Mercantil",
-          active_users: 9465,
-          id: uuidv4(),
-        },
-        {
-          name: "Banesco",
-          active_users: 9465,
-          id: uuidv4(),
-        },
-        {
-          name: "Banesco",
-          active_users: 9465,
-          id: uuidv4(),
-        },
-        {
-          name: "Banesco",
-          active_users: 9465,
-          id: uuidv4(),
-        },
-        {
-          name: "Banesco",
-          active_users: 9465,
-          id: uuidv4(),
-        },
-      ],
-      user_details: [
-        {
-          name: "Emmerson Oceanía",
-          username: "@emmerson003",
-          avatar: "/assets/images/image 4.png",
-          id: uuidv4(),
-        },
-        {
-          name: "Mirabelle Hargraves",
-          username: "@mihafff",
-          avatar: "/assets/images/image 4 (1).png",
-          id: uuidv4(),
-        },
-        {
-          name: "Emmerson Oceanía",
-          username: "@emmerson003",
-          avatar: "/assets/images/image 4.png",
-          id: uuidv4(),
-        },
-        {
-          name: "Emmerson Oceanía",
-          username: "@emmerson003",
-          avatar: "/assets/images/image 4.png",
-          id: uuidv4(),
-        },
-        {
-          name: "Emmerson Oceanía",
-          username: "@emmerson003",
-          avatar: "/assets/images/image 4.png",
-          id: uuidv4(),
-        },
-      ],
-    },
-    {
-      conpany_name: "Bolívar Digital",
-      active_user: [
-        {
-          name: "Banesco",
-          active_users: 9465,
-          id: uuidv4(),
-        },
-        {
-          name: "Mercantil",
-          active_users: 9465,
-          id: uuidv4(),
-        },
-        {
-          name: "Banesco",
-          active_users: 9465,
-          id: uuidv4(),
-        },
-        {
-          name: "Banesco",
-          active_users: 9465,
-          id: uuidv4(),
-        },
-        {
-          name: "Banesco",
-          active_users: 9465,
-          id: uuidv4(),
-        },
-        {
-          name: "Banesco",
-          active_users: 9465,
-          id: uuidv4(),
-        },
-      ],
-      user_details: [
-        {
-          name: "Emmerson Oceanía",
-          username: "@emmerson003",
-          avatar: "/assets/images/image 4.png",
-          id: uuidv4(),
-        },
-        {
-          name: "Mirabelle Hargraves",
-          username: "@mihafff",
-          avatar: "/assets/images/image 4 (1).png",
-          id: uuidv4(),
-        },
-        {
-          name: "Emmerson Oceanía",
-          username: "@emmerson003",
-          avatar: "/assets/images/image 4.png",
-          id: uuidv4(),
-        },
-        {
-          name: "Emmerson Oceanía",
-          username: "@emmerson003",
-          avatar: "/assets/images/image 4.png",
-          id: uuidv4(),
-        },
-        {
-          name: "Emmerson Oceanía",
-          username: "@emmerson003",
-          avatar: "/assets/images/image 4.png",
-          id: uuidv4(),
-        },
-      ],
-    },
-    {
-      conpany_name: "Bolívar Digital",
-      active_user: [
-        {
-          name: "Banesco",
-          active_users: 9465,
-          id: uuidv4(),
-        },
-        {
-          name: "Mercantil",
-          active_users: 9465,
-          id: uuidv4(),
-        },
-        {
-          name: "Banesco",
-          active_users: 9465,
-          id: uuidv4(),
-        },
-        {
-          name: "Banesco",
-          active_users: 9465,
-          id: uuidv4(),
-        },
-        {
-          name: "Banesco",
-          active_users: 9465,
-          id: uuidv4(),
-        },
-        {
-          name: "Banesco",
-          active_users: 9465,
-          id: uuidv4(),
-        },
-      ],
-      user_details: [
-        {
-          name: "Emmerson Oceanía",
-          username: "@emmerson003",
-          avatar: "/assets/images/image 4.png",
-          id: uuidv4(),
-        },
-        {
-          name: "Mirabelle Hargraves",
-          username: "@mihafff",
-          avatar: "/assets/images/image 4 (1).png",
-          id: uuidv4(),
-        },
-        {
-          name: "Emmerson Oceanía",
-          username: "@emmerson003",
-          avatar: "/assets/images/image 4.png",
-          id: uuidv4(),
-        },
-        {
-          name: "Emmerson Oceanía",
-          username: "@emmerson003",
-          avatar: "/assets/images/image 4.png",
-          id: uuidv4(),
-        },
-        {
-          name: "Emmerson Oceanía",
-          username: "@emmerson003",
-          avatar: "/assets/images/image 4.png",
-          id: uuidv4(),
-        },
-      ],
     },
   ];
 
@@ -293,31 +295,47 @@ const Plis = () => {
                 className="border w-full border-border rounded-[6px]  text-sm text-silver_text-foreground"
                 type="search"
                 placeholder="@username, nombre, correo eletrónico, número telefónico"
+                value={searchTerms[index]}
+                onChange={(e) => {
+                  const newSearchTerms = [...searchTerms];
+                  newSearchTerms[index] = e.target.value;
+                  setSearchTerms(newSearchTerms);
+                }}
               />
               <ul className="space-y-5 pt-5">
-                {data.user_details.map((u, index) => (
-                  <li
-                    key={index}
-                    onClick={() => router.push(`plis/${u.id}`)}
-                    className="border transition-all duration-500 hover:bg-primary/10 border-border cursor-pointer  px-4 flex items-center h-[68px] rounded-[6px]"
-                  >
-                    <div className="flex items-center gap-4">
-                      <Image
-                        width={44}
-                        height={44}
-                        src={u.avatar}
-                        alt="avatar"
-                        className=" rounded-[5px]"
-                      />
-                      <div className="flex flex-col">
-                        <p className="text-t-15 font-semibold">{u.name}</p>
-                        <p className="text-[0.8125em] font-normal text-silver_text-foreground">
-                          {u.username}
-                        </p>
+                {data.user_details
+                  .filter(
+                    (user) =>
+                      user.name
+                        .toLowerCase()
+                        .includes(searchTerms[index].toLowerCase()) ||
+                      user.username
+                        .toLowerCase()
+                        .includes(searchTerms[index].toLowerCase())
+                  )
+                  .map((u, index) => (
+                    <li
+                      key={index}
+                      onClick={() => router.push(`plis/${u.id}`)}
+                      className="border transition-all duration-500 hover:bg-primary/10 border-border cursor-pointer  px-4 flex items-center h-[68px] rounded-[6px]"
+                    >
+                      <div className="flex items-center gap-4">
+                        <Image
+                          width={44}
+                          height={44}
+                          src={u.avatar}
+                          alt="avatar"
+                          className=" rounded-[5px]"
+                        />
+                        <div className="flex flex-col">
+                          <p className="text-t-15 font-semibold">{u.name}</p>
+                          <p className="text-[0.8125em] font-normal text-silver_text-foreground">
+                            {u.username}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  </li>
-                ))}
+                    </li>
+                  ))}
               </ul>
             </div>
           </div>

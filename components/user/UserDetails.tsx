@@ -85,6 +85,19 @@ const UserProfileDetails: FC<UserProfileDetailsProps> = ({ userData }) => {
         )}
       </div>
       <div className="flex w-[60px] flex-col items-center">
+        <p className="text-base font-semibold">Balance</p>
+        {isEditable ? (
+          <div>
+            <Input value={country} onChange={handleCountryChange} />
+          </div>
+        ) : (
+          <p className="text-sm font-normal text-silver_text-foreground">
+            9,497USD
+          </p>
+        )}
+      </div>
+
+      <div className="flex w-[60px] flex-col items-center">
         <p className="text-base font-semibold">País</p>
         {isEditable ? (
           <div>
@@ -96,7 +109,6 @@ const UserProfileDetails: FC<UserProfileDetailsProps> = ({ userData }) => {
           </p>
         )}
       </div>
-
       <div className="flex flex-col items-center">
         <p className="text-base font-semibold">Correo electrónico</p>
         {isEditable ? (

@@ -12,6 +12,7 @@ import "swiper/css/navigation";
 // import required modules
 import DigitalBolivar from "@/components/pares/DigitalBolivar";
 import PesoChileno from "@/components/pares/PesoChileno";
+import PesoColombiano from "@/components/pares/PesoColombiano";
 import { useRef } from "react";
 import { FreeMode, Pagination } from "swiper/modules";
 import { Swiper as SwiperCore } from "swiper/types";
@@ -90,7 +91,8 @@ const Pares = () => {
 
       {/* ======= Bolívar Digital ======= */}
       <DigitalBolivar />
-
+      {/* Peso Colombiano */}
+      <PesoColombiano />
       {/* =========== Peso Chileno =========== */}
       <PesoChileno />
     </div>

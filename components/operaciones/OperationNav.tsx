@@ -8,7 +8,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useRouter } from "next/navigation";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { RiDeleteBin4Line } from "react-icons/ri";
 import SearchBar from "../ui/search-bar";
@@ -17,6 +17,13 @@ interface props {
 }
 const OperationNav: FC<props> = ({ title }) => {
   const router = useRouter();
+  // Define searchTerm state and handleSearchChange function
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearchChange = (value: string) => {
+    setSearchTerm(value);
+  };
+
   return (
     <div className="flex flex-wrap 2xl:flex-nowrap gap-4 items-center justify-between">
       <div className=" inline-flex items-center   gap-3">
@@ -79,7 +86,10 @@ const OperationNav: FC<props> = ({ title }) => {
           </Select>
         </div>
         {/* Search bar */}
-        <SearchBar />
+        <SearchBar
+          searchTerm={searchTerm}
+          onSearchChange={handleSearchChange}
+        />
       </div>
     </div>
   );

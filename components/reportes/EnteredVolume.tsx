@@ -19,9 +19,79 @@ import {
 } from "@/components/ui/table";
 
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import Pagination from "../ui/pagination";
 import SearchBar from "../ui/search-bar";
+interface TableData {
+  id: number;
+  name: string;
+  user: string;
+  volume: number;
+  avatar: string;
+}
+const dummyTableData: TableData[] = [
+  {
+    id: 1,
+    name: "Product A",
+    user: "John Doe",
+    volume: 1234,
+    avatar: "/assets/images/avatar.png",
+  },
+  {
+    id: 2,
+    name: "Product B",
+    user: "Jane Smith",
+    volume: 5678,
+    avatar: "/assets/images/avatar.png",
+  },
+  {
+    id: 3,
+    name: "Product C",
+    user: "Alex Johnson",
+    volume: 9876,
+    avatar: "/assets/images/avatar.png",
+  },
+];
+
 const EnteredVolume = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredData, setFilteredData] = useState<TableData[]>([]);
+
+  const handleSearchChange = (newSearchTerm: string) => {
+    setSearchTerm(newSearchTerm);
+  };
+
+  // Filtering logic based on the search term
+  useEffect(() => {
+    const filtered = dummyTableData.filter((row) =>
+      Object.values(row).some((value) =>
+        value.toString().toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    );
+    setFilteredData(filtered);
+  }, [searchTerm]);
+
+  const highlightSearchTerm = (text: string): JSX.Element => {
+    if (searchTerm.trim() === "") {
+      return <>{text}</>; // Return the original text if search term is empty
+    }
+
+    const regex = new RegExp(`(${searchTerm})`, "gi");
+    const parts = text.split(regex);
+    return (
+      <span>
+        {parts.map((part, index) =>
+          regex.test(part) ? (
+            <mark key={index} className="bg-yellow-200">
+              {part}
+            </mark>
+          ) : (
+            <span key={index}>{part}</span>
+          )
+        )}
+      </span>
+    );
+  };
   const handlePageClick = (event: any) => {
     // do something
   };
@@ -41,7 +111,10 @@ const EnteredVolume = () => {
             </SelectContent>
           </Select>
         </div>
-        <SearchBar />
+        <SearchBar
+          searchTerm={searchTerm}
+          onSearchChange={handleSearchChange}
+        />
       </div>
       <Table className=" min-w-max w-full">
         <TableHeader>
@@ -66,78 +139,26 @@ const EnteredVolume = () => {
           </TableRow>
         </TableHeader>
         <TableBody className="[&_tr:last-child]:border [&_tr]:border">
-          <TableRow className="h-12">
-            <TableCell>
-              <div className="flex items-center gap-2">
-                <Avatar className=" rounded-sm">
-                  <AvatarImage src="/assets/images/avatar.png" />
-                </Avatar>
-                <p className="text-xs sm:text-t-15 font-normal">
-                  Emmerson Oceanía
-                </p>
-              </div>
-            </TableCell>
-            <TableCell className="text-xs sm:text-t-15 font-normal">
-              Emmerson Oceanía
-            </TableCell>
-            <TableCell className="text-xs sm:text-t-15 font-normal">
-              1234
-            </TableCell>
-          </TableRow>
-          <TableRow className="h-12">
-            <TableCell>
-              <div className="flex items-center gap-2">
-                <Avatar className=" rounded-sm">
-                  <AvatarImage src="/assets/images/avatar.png" />
-                </Avatar>
-                <p className=" text-xs sm:text-t-15 font-normal">
-                  Emmerson Oceanía
-                </p>
-              </div>
-            </TableCell>
-            <TableCell className="text-xs sm:text-t-15 font-normal">
-              Emmerson Oceanía
-            </TableCell>
-            <TableCell className="text-xs sm:text-t-15 font-normal">
-              1234
-            </TableCell>
-          </TableRow>
-          <TableRow className="h-12">
-            <TableCell>
-              <div className="flex items-center gap-2">
-                <Avatar className=" rounded-sm">
-                  <AvatarImage src="/assets/images/avatar.png" />
-                </Avatar>
-                <p className="text-xs sm:text-t-15 font-normal">
-                  Emmerson Oceanía
-                </p>
-              </div>
-            </TableCell>
-            <TableCell className="text-xs sm:text-t-15 font-normal">
-              Emmerson Oceanía
-            </TableCell>
-            <TableCell className="text-xs sm:text-t-15 font-normal">
-              1234
-            </TableCell>
-          </TableRow>
-          <TableRow className="h-12">
-            <TableCell>
-              <div className="flex items-center gap-2">
-                <Avatar className=" rounded-sm">
-                  <AvatarImage src="/assets/images/avatar.png" />
-                </Avatar>
-                <p className="text-xs sm:text-t-15 font-normal">
-                  Emmerson Oceanía
-                </p>
-              </div>
-            </TableCell>
-            <TableCell className="text-xs sm:text-t-15 font-normal">
-              Emmerson Oceanía
-            </TableCell>
-            <TableCell className="text-xs sm:text-t-15 font-normal">
-              1234
-            </TableCell>
-          </TableRow>
+          {filteredData.map((item, index) => (
+            <TableRow key={index} className="h-12">
+              <TableCell>
+                <div className="flex items-center gap-2">
+                  <Avatar className=" rounded-sm">
+                    <AvatarImage src={item.avatar} />
+                  </Avatar>
+                  <p className="text-xs sm:text-t-15 font-normal">
+                    {highlightSearchTerm(item.name)}
+                  </p>
+                </div>
+              </TableCell>
+              <TableCell className="text-xs sm:text-t-15 font-normal">
+                {highlightSearchTerm(item.user)}
+              </TableCell>
+              <TableCell className="text-xs sm:text-t-15 font-normal">
+                {item.volume}
+              </TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
       <Pagination

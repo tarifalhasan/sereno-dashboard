@@ -130,7 +130,7 @@ const Sidebar = () => {
                     <Link
                       className={cn(
                         "text-base font-medium",
-                        pathName === data.href
+                        pathName.startsWith(data.href)
                           ? "text-white"
                           : "text-silver_text"
                       )}
